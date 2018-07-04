@@ -1,0 +1,59 @@
+const createError = require('http-errors')
+const express = require('express')
+const path = require('path')
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
+const cors = require('cors');
+const Promise = require('bluebird')
+
+const indexRouter = require('./routes/index')
+const usersRouter = require('./routes/users')
+const todosRouter = require('./routes/todo')
+
+const steam = require('./middlewares/steam_auth')
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://todo-fancy-data:11o22o12@ds231740.mlab.com:31740/todo-fancy', (req, res)=> {
+  console.log('database connected!')
+})
+
+const app = express()
+
+app.use(require('express-session')({ resave: false, saveUninitialized: false, secret: 'a secret' }));
+app.use(steam.middleware({
+  realm: 'http://localhost:3000/',
+	verify: 'http://localhost:3000/users/verify',
+	apiKey: "474010677BCBCE2E6ECDB57D83300C17"}
+));
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+
+app.use(cors())
+app.use(logger('dev'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.use('/', indexRouter)
+app.use('/users', usersRouter)
+app.use('/todo', todosRouter)
+
+// catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   next(createError(404))
+// })
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message
+  res.locals.error = req.app.get('env') === 'development' ? err : {}
+
+  // render the error page
+  res.status(err.status || 500)
+  res.render('error')
+})
+
+module.exports = app
