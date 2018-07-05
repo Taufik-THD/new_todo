@@ -45,7 +45,7 @@ export default {
       const token = localStorage.getItem('authorization')
       axios({
         method: 'put',
-        url: 'http://localhost:3000/todo',
+        url: 'http://35.240.145.166/todo',
         data: {
           id: idTodo
         }

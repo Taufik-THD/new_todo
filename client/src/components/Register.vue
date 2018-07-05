@@ -62,7 +62,7 @@ export default {
       this.$router.push('/')
     },
     register () {
-      if (this.validation == true && this.checkSame == true && this.password.length != 0) {
+      if (this.checkPassword == true && this.validation == true && this.password.length != 0) {
 
         const userData = {
           username: this.username,
@@ -72,10 +72,19 @@ export default {
 
         axios({
           method: 'post',
-          url: 'http://localhost:3000/users/register',
+          url: 'http://35.240.145.166/users/register',
           data: userData
         }).then(response => {
-          console.log(response)
+          this.username = ''
+          this.email = ''
+          this.password = ''
+          this.confirm = ''
+          this.$router.push('/')
+          swal({
+            title: "Yosh!",
+            text: "Successfully register your account",
+            icon: "success",
+          });
         }).catch(err => {
           console.log(err)
         })

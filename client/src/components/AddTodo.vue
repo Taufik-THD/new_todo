@@ -81,10 +81,9 @@ export default {
 
       axios({
         method: 'post',
-        url: 'http://localhost:3000/todo/add',
+        url: 'http://35.240.145.166/todo/add',
         data: todo
       }).then(() => {
-        console.log('anjing')
         this.$router.push('todo')
       }).catch(err => {
         console.log(err)

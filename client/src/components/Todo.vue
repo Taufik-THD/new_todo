@@ -62,7 +62,7 @@ export default {
       const token = localStorage.getItem('authorization')
       axios({
         method: 'put',
-        url: 'http://localhost:3000/todo',
+        url: 'http://35.240.145.166/todo',
         data: {
           id: idTodo
         }
@@ -80,7 +80,7 @@ export default {
     deleteTodo (id) {
       axios({
         method: 'delete',
-        url: `http://localhost:3000/todo/${id}`
+        url: `http://35.240.145.166/todo/${id}`
       }).then(response => {
         this.getTodo()
         console.log('success')

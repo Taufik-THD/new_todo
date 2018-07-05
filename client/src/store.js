@@ -25,7 +25,7 @@ export default new Vuex.Store({
     getTodo ({ commit }, payload) {
       axios({
         method: 'post',
-        url: 'http://localhost:3000/todo',
+        url: 'http://35.240.145.166/todo',
         data: {
           token: payload
         }

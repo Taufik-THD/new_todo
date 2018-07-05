@@ -93,7 +93,7 @@ export default {
       }
       axios({
         method: 'post',
-        url: 'http://localhost:3000/users/login',
+        url: 'http://35.240.145.166/users/login',
         data: UserData
       }).then((response) => {
         const token = JSON.stringify(response.data.jwtToken)
@@ -124,7 +124,7 @@ export default {
       }
       axios({
         method: 'post',
-        url: 'http://localhost:3000/users/loginGoogle',
+        url: 'http://35.240.145.166/users/loginGoogle',
         data: userData
       }).then((response) => {
         const token = JSON.stringify(response.data.jwtToken)
@@ -157,7 +157,7 @@ export default {
           }
           axios({
             method: 'post',
-            url: 'http://localhost:3000/users/loginGithub',
+            url: 'http://35.240.145.166/users/loginGithub',
             data: userData
           }).then(response => {
             const token = JSON.stringify(response.data.jwtToken)
@@ -186,7 +186,7 @@ export default {
           }, function (profile) {
             axios({
               method: 'post',
-              url: 'http://localhost:3000/users/loginFb',
+              url: 'http://35.240.145.166/users/loginFb',
               headers: profile
             }).then((response) => {
               const token = JSON.stringify(response.data.jwtToken)
@@ -214,7 +214,7 @@ export default {
       }, function (profile) {
         axios({
           method: 'post',
-          url: 'http://localhost:3000/users/loginFb',
+          url: 'http://35.240.145.166/users/loginFb',
           headers: profile
         }).then((response) => {
           console.log('Welcome!  Fetching your information.... ')
@@ -228,7 +228,7 @@ export default {
       // steam login
       axios({
         method: 'get',
-        url: 'http://localhost:3000/users/steam/authenticate'
+        url: 'http://35.240.145.166/users/steam/authenticate'
       }).then(response => {
         var myWindow = window.open(response.data, 'myWindow', 'width=500,height=700')
         setTimeout(function () {
