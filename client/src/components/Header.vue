@@ -65,7 +65,7 @@ export default {
       //
       // axios({
       //   method: 'post',
-      //   url: 'http://localhost:3000/todo/add',
+      //   url: 'http://35.240.208.249/todo/add',
       //   data: todo
       // }).then(() => {
       //   this.newActivity = ''

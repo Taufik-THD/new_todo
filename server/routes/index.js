@@ -13,6 +13,6 @@ router.get('/', (req, res) => {
 
 router.post('/fblogin', registerOrLogin)
 
-router.get('/verify', steam.verify(), LoginSteam)
+// router.get('/verify', steam.verify(), LoginSteam)
 
 module.exports = router;

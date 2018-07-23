@@ -23,8 +23,8 @@
           <p>or Sign In with :</p>
           <nav class="navmedia">
             <ul>
-            <li><a class="btn tooltip btn-block socmed" data-position="bottom" data-tooltip="I am a tooltip" style="background-color:#192a56;" @click='steamSignIn'>
-            <i class="fab fa-steam-square"></i><span class="tooltiptext">Steam</span></a></li>
+            <!-- <li><a class="btn tooltip btn-block socmed" data-position="bottom" data-tooltip="I am a tooltip" style="background-color:#192a56;" @click='steamSignIn'>
+            <i class="fab fa-steam-square"></i><span class="tooltiptext">Steam</span></a></li> -->
             <li><a class="btn tooltip btn-block socmed" style="background-color:#000000;" @click='loginGithub'>
             <i class="fab fa-github-square"></i><span class="tooltiptext">Github</span></a></li>
             <li><g-signin-button
@@ -93,7 +93,7 @@ export default {
       }
       axios({
         method: 'post',
-        url: 'http://35.240.145.166/users/login',
+        url: 'http://35.240.208.249/users/login',
         data: UserData
       }).then((response) => {
         const token = JSON.stringify(response.data.jwtToken)
@@ -124,7 +124,7 @@ export default {
       }
       axios({
         method: 'post',
-        url: 'http://35.240.145.166/users/loginGoogle',
+        url: 'http://35.240.208.249/users/loginGoogle',
         data: userData
       }).then((response) => {
         const token = JSON.stringify(response.data.jwtToken)
@@ -157,7 +157,7 @@ export default {
           }
           axios({
             method: 'post',
-            url: 'http://35.240.145.166/users/loginGithub',
+            url: 'http://35.240.208.249/users/loginGithub',
             data: userData
           }).then(response => {
             const token = JSON.stringify(response.data.jwtToken)
@@ -186,7 +186,7 @@ export default {
           }, function (profile) {
             axios({
               method: 'post',
-              url: 'http://35.240.145.166/users/loginFb',
+              url: 'http://35.240.208.249/users/loginFb',
               headers: profile
             }).then((response) => {
               const token = JSON.stringify(response.data.jwtToken)
@@ -214,7 +214,7 @@ export default {
       }, function (profile) {
         axios({
           method: 'post',
-          url: 'http://35.240.145.166/users/loginFb',
+          url: 'http://35.240.208.249/users/loginFb',
           headers: profile
         }).then((response) => {
           console.log('Welcome!  Fetching your information.... ')
@@ -228,7 +228,7 @@ export default {
       // steam login
       axios({
         method: 'get',
-        url: 'http://35.240.145.166/users/steam/authenticate'
+        url: 'http://35.240.208.249/users/steam/authenticate'
       }).then(response => {
         var myWindow = window.open(response.data, 'myWindow', 'width=500,height=700')
         setTimeout(function () {
@@ -265,7 +265,7 @@ a {
 
 .socmed{
   height:50px;
-  width: 81.5px;
+  width: 106px;
   text-align: center;
   font-size: 50px;
   margin:9% 0 5px 20%;

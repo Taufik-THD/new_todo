@@ -4,13 +4,13 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors');
-const Promise = require('bluebird')
+// const Promise = require('bluebird')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const todosRouter = require('./routes/todo')
 
-const steam = require('./middlewares/steam_auth')
+// const steam = require('./middlewares/steam_auth')
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://todo-fancy-data:11o22o12@ds231740.mlab.com:31740/todo-fancy', (req, res)=> {
   console.log('database connected!')
@@ -18,12 +18,12 @@ mongoose.connect('mongodb://todo-fancy-data:11o22o12@ds231740.mlab.com:31740/tod
 
 const app = express()
 
-app.use(require('express-session')({ resave: false, saveUninitialized: false, secret: 'a secret' }));
-app.use(steam.middleware({
-  realm: 'http://localhost:3000/',
-	verify: 'http://localhost:3000/users/verify',
-	apiKey: "474010677BCBCE2E6ECDB57D83300C17"}
-));
+// app.use(require('express-session')({ resave: false, saveUninitialized: false, secret: 'a secret' }));
+// app.use(steam.middleware({
+//   realm: 'http://localhost:3000/',
+// 	verify: 'http://localhost:3000/users/verify',
+// 	apiKey: "474010677BCBCE2E6ECDB57D83300C17"}
+// ));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))

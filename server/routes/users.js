@@ -18,10 +18,10 @@ router.post('/loginGithub', LoginGithub)
 
 router.post('/loginGoogle', LoginGoogle)
 
-router.get('/steam/authenticate', steam.authenticate(), function(req, res) {
-	console.log('steam login');
-});
+// router.get('/steam/authenticate', steam.authenticate(), function(req, res) {
+// 	console.log('steam login');
+// });
 
-router.get('/verify', steam.verify(), LoginSteam)
+// router.get('/verify', steam.verify(), LoginSteam)
 
 module.exports = router
